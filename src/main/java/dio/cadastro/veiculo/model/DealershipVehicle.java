@@ -9,9 +9,13 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity(name = "tb_dealership_vehicle")
 public class DealershipVehicle {
 
@@ -23,8 +27,8 @@ public class DealershipVehicle {
 	@Column(name = "dealership_vehicle_name")
 	private String name;
 
-	@Column(name = "dealership_vehicle_cpf",unique = true)
-	private String cpf;
+	@Column(name = "dealership_vehicle_cnpj",unique = true)
+	private String cnpj;
 
 	@Column(name = "dealership_vehicle_phone_number",unique = true)
 	private String phoneNumber;

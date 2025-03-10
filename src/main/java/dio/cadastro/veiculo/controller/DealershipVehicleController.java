@@ -13,9 +13,12 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import dio.cadastro.veiculo.model.DealershipVehicle;
 import dio.cadastro.veiculo.service.DealershipVehicleService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 
 @RestController
 @RequestMapping("/dealership")
+@Tag(name = "Concessionária", description = "API para gerenciamento de concessionárias")
 public class DealershipVehicleController {
 
 	private final DealershipVehicleService dealershipVehicleService;
@@ -25,12 +28,14 @@ public class DealershipVehicleController {
 	}
 	
 	@GetMapping("/{id}")
+    @Operation(summary = "Buscar Concessionárias", description = "Retorna uma lista de Concessionárias cadastrados")
 	public ResponseEntity<DealershipVehicle> findById(@PathVariable Long id){
 		var dealershipVehicle = dealershipVehicleService.findById(id);
 	    return ResponseEntity.ok(dealershipVehicle);
 	}
 	
 	@PostMapping
+    @Operation(summary = "Criar Concessionárias", description = "Cria Concessionárias")
 	public ResponseEntity<DealershipVehicle> create(@RequestBody DealershipVehicle dealershipVehicleToCreate){
 		var dealershipVehicleCreated = dealershipVehicleService.create(dealershipVehicleToCreate);
 		URI location = ServletUriComponentsBuilder.fromCurrentRequest()
