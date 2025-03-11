@@ -9,13 +9,13 @@ classDiagram
         +String cor
     }
 
-    class concessionária {
+    class Concessionária {
         +Long id
         +String nome
         +String cnpj
         +String telefone
     }
 
-    Proprietario "1" --> "0..*" Veiculo : "possui"
+    Concessionária "1" --> "0..*" Veiculo : "possui"
 
 ```
