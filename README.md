@@ -1,6 +1,7 @@
 ```mermaid
 classDiagram
     class Veiculo {
+        +Long id
         +String placa
         +String marca
         +String modelo
@@ -8,9 +9,10 @@ classDiagram
         +String cor
     }
 
-    class Proprietario {
+    class concessionária {
+        +Long id
         +String nome
-        +String cpf
+        +String cnpj
         +String telefone
     }
 
