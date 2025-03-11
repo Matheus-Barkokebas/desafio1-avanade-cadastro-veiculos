@@ -8,6 +8,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -27,13 +28,14 @@ public class DealershipVehicle {
 	@Column(name = "dealership_vehicle_name")
 	private String name;
 
-	@Column(name = "dealership_vehicle_cnpj",unique = true)
+	@Column(name = "dealership_vehicle_cnpj", unique = true)
 	private String cnpj;
 
-	@Column(name = "dealership_vehicle_phone_number",unique = true)
+	@Column(name = "dealership_vehicle_phone_number", unique = true)
 	private String phoneNumber;
-	
-	@OneToMany(mappedBy = "dealershipVehicle", cascade = CascadeType.ALL, orphanRemoval = true)
+
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinColumn(name = "dealership_vehicle_id")
 	private List<Vehicle> vehicle;
 
 }

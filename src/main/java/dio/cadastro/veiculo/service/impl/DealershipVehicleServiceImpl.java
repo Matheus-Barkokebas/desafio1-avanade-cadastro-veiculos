@@ -24,10 +24,6 @@ public class DealershipVehicleServiceImpl implements DealershipVehicleService {
 
 	@Override
 	public DealershipVehicle create(DealershipVehicle dealershipVehicleToCreate) {
-
-		if (dealershipVehicleRepository.existsById(dealershipVehicleToCreate.getId())) {
-			throw new IllegalArgumentException("This Id already exists.");
-		}
 		return dealershipVehicleRepository.save(dealershipVehicleToCreate);
 	}
 
